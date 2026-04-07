@@ -8,7 +8,7 @@
       font-family: Arial, sans-serif;
       line-height: 1.6;
       margin: 20px;
-      background: #f9f9f9;
+      background: #f4f6f8;
     }
     h1 {
       text-align: center;
@@ -21,12 +21,18 @@
     }
     ul {
       background: white;
-      padding: 15px;
+      padding: 15px 20px;
       border-radius: 6px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     li {
       margin-bottom: 6px;
+    }
+    .highlight {
+      background: #ffe082;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -34,111 +40,139 @@
 
 <h1>Checklist Thu Thập Requirements</h1>
 
-<h2>1. Tổng quan hệ thống</h2>
+<h2>1. Tổng quan hệ thống (Business Overview)</h2>
 <ul>
-  <li>Hệ thống hiện tại đang dùng là gì?</li>
+  <li>Hệ thống hiện tại đang dùng là gì? (Excel, phần mềm cũ, ERP…)</li>
   <li>Vấn đề lớn nhất đang gặp là gì?</li>
-  <li>Quy mô: Bao nhiêu đơn/ngày?</li>
+  <li>Quy mô:</li>
+  <li>Bao nhiêu đơn/ngày?</li>
   <li>Bao nhiêu kho?</li>
   <li>Bao nhiêu user?</li>
-  <li>Ai là người sử dụng hệ thống?</li>
-  <li>Admin</li>
+  <li>Ai là người sử dụng hệ thống? (role)</li>
+  <li>Admin (người sở hữu hệ thống)</li>
   <li>Nhân viên bán hàng</li>
   <li>Kho</li>
   <li>Kế toán</li>
   <li>Có cần phân quyền chi tiết không?</li>
 </ul>
 
-<h2>2. Quản lý đơn hàng</h2>
+<h2>2. Quản lý đơn hàng (Order Management)</h2>
 <ul>
-  <li>Đơn hàng được tạo như thế nào?</li>
-  <li>Nhập tay / import / website / API?</li>
+  <li>Flow nghiệp vụ</li>
+  <li>Một đơn hàng được tạo như thế nào?</li>
+  <li>Nhập tay / import file có sẵn / từ website / API?</li>
   <li>Trạng thái đơn hàng gồm những gì?</li>
+  <li>(vd: mới → xác nhận → đóng gói → giao → hoàn thành → hủy)</li>
   <li>Có cho phép sửa đơn sau khi tạo không?</li>
-  <li>Khi hủy đơn xử lý tồn kho thế nào?</li>
-  <li>Thông tin đơn hàng gồm những gì?</li>
-  <li>Khách hàng, sản phẩm, số lượng, giá, giảm giá, thuế…</li>
-  <li>Có nhiều loại đơn không?</li>
-  <li>Có lưu lịch sử thay đổi không?</li>
+  <li>Khi hủy đơn thì xử lý tồn kho như thế nào?</li>
+  <li>Thông tin đơn hàng</li>
+  <li>Đơn hàng cần những thông tin gì liệt kê chi tiết?</li>
+  <li>khách hàng, sản phẩm, số lượng, giá, giảm giá, thuế…</li>
+  <li>Có nhiều loại đơn không? (online / offline / sỉ / lẻ)</li>
+  <li>Logic quan trọng</li>
+  <li>Có giữ lịch sử thay đổi đơn không?</li>
   <li>Có cần duyệt đơn không?</li>
 </ul>
 
-<h2>3. Quản lý kho</h2>
+<h2>3. Quản lý kho (Inventory Management)</h2>
 <ul>
+  <li>Cấu trúc kho</li>
   <li>Có bao nhiêu kho?</li>
-  <li>Có quản lý theo vị trí không?</li>
-  <li>Có quản lý theo lô không?</li>
-  <li>Có quản lý hạn sử dụng không?</li>
+  <li>Có quản lý theo:</li>
+  <li>vị trí (bin/location)?</li>
+  <li>lô (batch)?</li>
+  <li>hạn sử dụng?</li>
+  <li>Nghiệp vụ kho</li>
   <li>Nhập kho từ đâu?</li>
-  <li>Mua hàng / sản xuất / trả hàng</li>
-  <li>Xuất kho gồm những gì?</li>
-  <li>Bán hàng / chuyển kho / hủy</li>
-  <li>Có giữ hàng khi tạo đơn không?</li>
+  <li>mua hàng / sản xuất / trả hàng</li>
+  <li>Xuất kho:</li>
+  <li>bán hàng / chuyển kho / hủy</li>
+  <li>Đồng bộ với đơn hàng</li>
+  <li>Khi tạo đơn → có giữ hàng (reserve) không?</li>
   <li>Khi nào trừ kho?</li>
-  <li>Có kiểm kê định kỳ không?</li>
-  <li>Sai lệch xử lý thế nào?</li>
+  <li>lúc tạo đơn hay lúc giao hàng?</li>
+  <li>Kiểm kê</li>
+  <li>Có cần kiểm kê định kỳ không?</li>
+  <li>Sai lệch xử lý như thế nào?</li>
 </ul>
 
 <h2>4. Quản lý sản phẩm</h2>
 <ul>
-  <li>Sản phẩm có biến thể không?</li>
+  <li>Sản phẩm có biến thể không? (size, màu…)</li>
   <li>Có SKU riêng không?</li>
-  <li>Có nhiều bảng giá không?</li>
-  <li>Có quản lý tồn kho theo biến thể không?</li>
+  <li>Giá:</li>
+  <li>có nhiều bảng giá không?</li>
+  <li>Có quản lý tồn kho theo từng biến thể không?</li>
 </ul>
 
-<h2>5. Kế toán & doanh thu</h2>
+<h2>5. Kế toán & doanh thu (Accounting / Revenue)</h2>
 <ul>
-  <li>Doanh thu tính theo đơn hoàn thành hay thanh toán?</li>
-  <li>Có báo cáo theo ngày/tháng/quý không?</li>
-  <li>Phương thức thanh toán gồm gì?</li>
-  <li>Có thanh toán nhiều lần không?</li>
-  <li>Có quản lý công nợ không?</li>
+  <li>Doanh thu</li>
+  <li>Doanh thu tính theo:</li>
+  <li>đơn hàng hoàn thành?</li>
+  <li>hay đã thanh toán?</li>
+  <li>Có cần báo cáo theo:</li>
+  <li>ngày / tháng / quý?</li>
+  <li>Thanh toán</li>
+  <li>Các phương thức thanh toán:</li>
+  <li>tiền mặt / chuyển khoản / ví / COD</li>
+  <li>Có hỗ trợ thanh toán nhiều lần cho 1 đơn không?</li>
+  <li>Công nợ</li>
+  <li>Có quản lý công nợ khách hàng không?</li>
   <li>Có hạn mức tín dụng không?</li>
 </ul>
 
-<h2>6. Hóa đơn</h2>
+<h2>6. Hóa đơn (Invoice Management)</h2>
 <ul>
   <li>Hóa đơn tạo khi nào?</li>
-  <li>Có cần hóa đơn điện tử không?</li>
-  <li>Có tích hợp bên thứ 3 không?</li>
-  <li>Một đơn có nhiều hóa đơn không?</li>
+  <li>khi tạo đơn / khi thanh toán / khi giao hàng</li>
+  <li>Có cần xuất hóa đơn điện tử không?</li>
+  <li>Có tích hợp với bên thứ 3 không? (MISA, VNPT…)</li>
+  <li>Một đơn có thể có nhiều hóa đơn không?</li>
 </ul>
 
 <h2>7. Báo cáo & thống kê</h2>
 <ul>
   <li>Cần những báo cáo nào?</li>
-  <li>Doanh thu</li>
-  <li>Tồn kho</li>
-  <li>Top sản phẩm</li>
-  <li>Có dashboard realtime không?</li>
-  <li>Có export Excel/PDF không?</li>
+  <li>doanh thu</li>
+  <li>tồn kho</li>
+  <li>top sản phẩm</li>
+  <li>Có cần biểu đồ thống kê thời gian thực không?</li>
+  <li>Có xuất Excel/PDF không?</li>
 </ul>
 
 <h2>8. Phân quyền & bảo mật</h2>
 <ul>
   <li>Role nào làm được gì?</li>
-  <li>Có audit log không?</li>
-  <li>Có phân quyền theo kho không?</li>
+  <li>Có cần audit log không? (ai sửa gì, lúc nào)</li>
+  <li>Có cần phân quyền theo kho không?</li>
 </ul>
 
-<h2>9. Tích hợp</h2>
+<h2>9. Tích hợp (Integration)</h2>
 <ul>
-  <li>Có tích hợp website bán hàng không?</li>
-  <li>Có tích hợp sàn TMĐT không?</li>
+  <li>Có cần tích hợp:</li>
+  <li>website bán hàng?</li>
+  <li>sàn Thương Mại Điện Tử?</li>
+  <li><span class="highlight">API bên thứ 3? (không cần trả lời)</span></li>
+  <li><span class="highlight">Có cần webhook không? (không cần trả lời)</span></li>
 </ul>
 
-<h2>10. Phi chức năng</h2>
+<h2>10. Phi chức năng (Non-functional)</h2>
 <ul>
+  <li><span class="highlight">Số lượng user đồng thời? (chưa cần trả lời)</span></li>
+  <li><span class="highlight">Yêu cầu performance? (chưa cần trả lời)</span></li>
   <li>Có cần chạy mobile không?</li>
+  <li><span class="highlight">Backup dữ liệu như thế nào? (chưa cần trả lời)</span></li>
+  <li><span class="highlight">Có cần đa ngôn ngữ không? (chưa cần trả lời)</span></li>
 </ul>
 
 <h2>11. Câu hỏi thêm</h2>
 <ul>
-  <li>Đơn giao thất bại xử lý thế nào?</li>
-  <li>Trả hàng có nhập kho lại không?</li>
+  <li>Trường hợp bất khả kháng:</li>
+  <li>đơn giao thất bại → xử lý?</li>
+  <li>trả hàng → nhập kho lại?</li>
   <li>Nếu mất mạng thì sao?</li>
-  <li>Nếu 2 người sửa cùng 1 đơn thì sao?</li>
+  <li>Nếu 2 người sửa cùng 1 đơn?</li>
 </ul>
 
 </body>
